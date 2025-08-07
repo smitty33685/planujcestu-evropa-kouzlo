@@ -59,7 +59,7 @@ const Index = () => {
             <div className="flex items-center justify-center gap-2 mb-4">
               <Plane className="h-8 w-8 text-white animate-bounce-gentle" />
               <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
-                NaplánujCestu.cz
+                VyberDestinaci.cz
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
@@ -125,7 +125,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-muted/50 py-8 text-center">
         <p className="text-muted-foreground">
-          © 2024 NaplánujCestu.cz - Objevte krásy Evropy
+          © 2024 VyberDestinaci.cz - Objevte krásy Evropy
         </p>
       </footer>
     </div>
