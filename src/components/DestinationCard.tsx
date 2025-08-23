@@ -41,7 +41,7 @@ export function DestinationCard({
   const pricePerPerson = Math.round(totalCost / numberOfPeople);
 
   return (
-    <Card className="overflow-hidden shadow-card hover:shadow-travel transition-all duration-300 animate-slide-up border-0 gradient-card">
+    <Card className="overflow-hidden shadow-card hover:shadow-travel transition-all duration-300 animate-slide-up border-2 border-border hover:border-primary/50 gradient-card hover:scale-[1.02] hover:shadow-xl">
       <CardHeader className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
