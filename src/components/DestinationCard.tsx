@@ -9,6 +9,12 @@ interface DestinationCardProps {
   totalCost: number;
   duration: number;
   numberOfPeople: number;
+  breakdown?: {
+    flights: number;
+    accommodation: number;
+    food: number;
+    total: number;
+  };
   onShowItinerary?: () => void;
   showItinerary?: boolean;
   itinerary?: string[];
@@ -19,6 +25,7 @@ export function DestinationCard({
   totalCost, 
   duration, 
   numberOfPeople,
+  breakdown,
   onShowItinerary,
   showItinerary = false,
   itinerary = []
@@ -68,9 +75,26 @@ export function DestinationCard({
             <span className="font-semibold text-primary">Celková cena:</span>
             <span className="text-2xl font-bold text-primary">{formatPrice(totalCost)}</span>
           </div>
-          <div className="text-xs text-muted-foreground">
+          <div className="text-xs text-muted-foreground mb-2">
             Pro {numberOfPeople} {numberOfPeople === 1 ? 'osobu' : numberOfPeople < 5 ? 'osoby' : 'osob'} na {duration} {duration === 1 ? 'den' : duration < 5 ? 'dny' : 'dní'}
           </div>
+          
+          {breakdown && (
+            <div className="space-y-1 pt-2 border-t border-muted-foreground/20">
+              <div className="flex justify-between text-xs">
+                <span className="text-muted-foreground">Letenky:</span>
+                <span className="font-medium">{formatPrice(breakdown.flights)}</span>
+              </div>
+              <div className="flex justify-between text-xs">
+                <span className="text-muted-foreground">Ubytování:</span>
+                <span className="font-medium">{formatPrice(breakdown.accommodation)}</span>
+              </div>
+              <div className="flex justify-between text-xs">
+                <span className="text-muted-foreground">Strava:</span>
+                <span className="font-medium">{formatPrice(breakdown.food)}</span>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="space-y-2">

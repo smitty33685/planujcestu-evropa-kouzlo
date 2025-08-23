@@ -101,6 +101,7 @@ const Index = () => {
                     totalCost={result.totalCost}
                     duration={Number(Object.keys(searchResults).length) >= 1 ? 3 : 3} // Default duration for display
                     numberOfPeople={2} // Default for display
+                    breakdown={result.breakdown}
                     onShowItinerary={() => toggleItinerary(result.destination.id)}
                     showItinerary={expandedCards.has(result.destination.id)}
                     itinerary={mockItineraries[result.destination.id as keyof typeof mockItineraries] || []}
