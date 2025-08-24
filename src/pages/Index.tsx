@@ -5,6 +5,7 @@ import { destinations, mockItineraries } from "@/data/destinations";
 import { findSuitableDestinations, TravelCalculation } from "@/utils/travelCalculator";
 import { Plane, MapPin, Heart } from "lucide-react";
 import heroImage from "@/assets/hero-travel.jpg";
+import Navbar from "@/components/Navbar";
 
 interface TravelFormData {
   numberOfPeople: number;
@@ -60,6 +61,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       {/* Hero sekce */}
       <div 
         className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
