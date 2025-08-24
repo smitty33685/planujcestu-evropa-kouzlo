@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TravelForm } from "@/components/TravelForm";
 import { DestinationCard } from "@/components/DestinationCard";
 import { destinations, mockItineraries } from "@/data/destinations";
@@ -18,6 +18,18 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isLoading && searchResults.length > 0 && resultsRef.current) {
+      setTimeout(() => {
+        resultsRef.current?.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+  }, [isLoading, searchResults]);
 
   const handleSearch = async (formData: TravelFormData) => {
     setIsLoading(true);
@@ -75,7 +87,7 @@ const Index = () => {
 
       {/* Výsledky vyhledávání */}
       {hasSearched && (
-        <div className="container mx-auto px-4 py-16">
+        <div ref={resultsRef} className="container mx-auto px-4 py-16">
           {isLoading ? (
             <div className="text-center space-y-4">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
