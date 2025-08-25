@@ -35,7 +35,7 @@ const Navbar = () => {
         "top-0 z-50 w-full transition-all duration-300",
         "md:sticky md:backdrop-blur-sm", 
         isScrolled 
-          ? "md:bg-background/80 md:border-b md:border-border/50 md:shadow-sm" 
+          ? "md:bg-white/95 md:border-b md:border-gray-200 md:shadow-sm" 
           : "md:bg-transparent",
         "relative bg-transparent" // Mobile stays relative with transparent bg
       )}>
@@ -53,7 +53,7 @@ const Navbar = () => {
                             navigationMenuTriggerStyle(),
                             "bg-transparent border-none cursor-pointer transition-colors",
                             isScrolled 
-                              ? "text-foreground hover:text-foreground hover:bg-accent" 
+                              ? "text-gray-900 hover:text-gray-900 hover:bg-gray-100" 
                               : "text-white hover:text-white hover:bg-white/10"
                           )}
                           onClick={(e) => e.preventDefault()}
