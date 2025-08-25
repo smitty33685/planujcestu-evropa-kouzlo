@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,18 @@ import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 100;
+      setIsScrolled(scrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { href: "/destinace", label: "Destinace" },
@@ -20,7 +31,14 @@ const Navbar = () => {
 
   return (
     <TooltipProvider>
-      <nav className="fixed top-0 z-50 w-full bg-transparent">
+      <nav className={cn(
+        "top-0 z-50 w-full transition-all duration-300",
+        "md:sticky md:backdrop-blur-sm", 
+        isScrolled 
+          ? "md:bg-background/80 md:border-b md:border-border/50 md:shadow-sm" 
+          : "md:bg-transparent",
+        "relative bg-transparent" // Mobile stays relative with transparent bg
+      )}>
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-center">
             {/* Desktop Navigation */}
@@ -33,7 +51,10 @@ const Navbar = () => {
                         <NavigationMenuLink 
                           className={cn(
                             navigationMenuTriggerStyle(),
-                            "text-white hover:text-white hover:bg-white/10 bg-transparent border-none cursor-pointer"
+                            "bg-transparent border-none cursor-pointer transition-colors",
+                            isScrolled 
+                              ? "text-foreground hover:text-foreground hover:bg-accent" 
+                              : "text-white hover:text-white hover:bg-white/10"
                           )}
                           onClick={(e) => e.preventDefault()}
                         >
