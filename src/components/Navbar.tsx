@@ -30,17 +30,15 @@ const Navbar = () => {
                   <NavigationMenuItem key={item.href}>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <div>
-                          <NavigationMenuLink 
-                            className={cn(
-                              navigationMenuTriggerStyle(),
-                              "text-white hover:text-white/80 hover:bg-white/10 cursor-pointer"
-                            )}
-                            onClick={(e) => e.preventDefault()}
-                          >
-                            {item.label}
-                          </NavigationMenuLink>
-                        </div>
+                        <NavigationMenuLink 
+                          className={cn(
+                            navigationMenuTriggerStyle(),
+                            "text-white hover:text-white hover:bg-white/10 bg-transparent border-none cursor-pointer"
+                          )}
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          {item.label}
+                        </NavigationMenuLink>
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Bude brzo k dispozici</p>
@@ -70,7 +68,7 @@ const Navbar = () => {
                   <Tooltip key={item.href}>
                     <TooltipTrigger asChild>
                       <div
-                        className="block px-3 py-2 rounded-md text-base font-medium transition-colors text-white hover:text-white/80 hover:bg-white/10 cursor-pointer"
+                        className="block px-3 py-2 rounded-md text-base font-medium transition-colors text-white hover:text-white hover:bg-white/10 cursor-pointer"
                         onClick={(e) => e.preventDefault()}
                       >
                         {item.label}
