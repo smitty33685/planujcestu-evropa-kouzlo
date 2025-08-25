@@ -97,6 +97,23 @@ export function DestinationCard({
           )}
         </div>
 
+        <div className="grid grid-cols-2 gap-3 mt-4">
+          <Button 
+            variant="default"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+            onClick={() => window.open('#', '_blank')}
+          >
+            Koupit letenky
+          </Button>
+          <Button 
+            variant="outline"
+            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            onClick={() => window.open('#', '_blank')}
+          >
+            Koupit ubytování
+          </Button>
+        </div>
+
         <div className="space-y-2">
           <div className="flex items-center gap-2 mb-2">
             <Star className="h-4 w-4 text-accent" />
