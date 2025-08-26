@@ -64,19 +64,19 @@ const Index = () => {
       <Navbar />
       {/* Hero sekce */}
       <div 
-        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat pt-16 md:pt-0"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative z-10 text-center space-y-8 px-4">
-          <div className="space-y-4">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Plane className="h-8 w-8 text-white animate-bounce-gentle" />
-              <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
+        <div className="relative z-10 text-center space-y-6 md:space-y-8 px-4 max-w-4xl mx-auto">
+          <div className="space-y-3 md:space-y-4">
+            <div className="flex items-center justify-center gap-2 mb-2 md:mb-4">
+              <Plane className="h-6 w-6 md:h-8 md:w-8 text-white animate-bounce-gentle" />
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight">
                 VyberDestinaci.cz
               </h1>
             </div>
-            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed px-4">
               Objevte ideální evropskou destinaci podle vašeho rozpočtu a preferencí
             </p>
           </div>

@@ -39,20 +39,20 @@ export function TravelForm({ onSearch, isLoading }: TravelFormProps) {
   };
 
   return (
-    <Card className="w-full max-w-2xl shadow-travel border-0 gradient-card">
-      <CardHeader className="text-center">
-        <CardTitle className="text-2xl text-gradient">
+    <Card className="w-full max-w-2xl mx-auto shadow-travel border-0 gradient-card">
+      <CardHeader className="text-center pb-4">
+        <CardTitle className="text-xl md:text-2xl text-gradient">
           Naplánujte svůj dokonalý výlet
         </CardTitle>
-        <CardDescription className="text-muted-foreground">
+        <CardDescription className="text-muted-foreground text-sm md:text-base">
           Zadejte své preference a najděte ideální evropskou destinaci
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <CardContent className="px-4 md:px-6">
+        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div className="space-y-2">
-              <Label htmlFor="people" className="flex items-center gap-2">
+              <Label htmlFor="people" className="flex items-center gap-2 text-sm md:text-base">
                 <Users className="h-4 w-4 text-primary" />
                 Počet cestujících
               </Label>
@@ -68,7 +68,7 @@ export function TravelForm({ onSearch, isLoading }: TravelFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="departure" className="flex items-center gap-2">
+              <Label htmlFor="departure" className="flex items-center gap-2 text-sm md:text-base">
                 <MapPin className="h-4 w-4 text-primary" />
                 Město odjezdu
               </Label>
@@ -90,7 +90,7 @@ export function TravelForm({ onSearch, isLoading }: TravelFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="duration" className="flex items-center gap-2">
+              <Label htmlFor="duration" className="flex items-center gap-2 text-sm md:text-base">
                 <Calendar className="h-4 w-4 text-primary" />
                 Délka výletu (dny)
               </Label>
@@ -106,7 +106,7 @@ export function TravelForm({ onSearch, isLoading }: TravelFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="budget" className="flex items-center gap-2">
+              <Label htmlFor="budget" className="flex items-center gap-2 text-sm md:text-base">
                 <CreditCard className="h-4 w-4 text-primary" />
                 Rozpočet (CZK)
               </Label>
@@ -125,7 +125,7 @@ export function TravelForm({ onSearch, isLoading }: TravelFormProps) {
 
           <Button 
             type="submit" 
-            className="w-full gradient-primary text-primary-foreground hover:opacity-90 transition-opacity py-6 text-lg font-semibold"
+            className="w-full gradient-primary text-primary-foreground hover:opacity-90 transition-opacity py-4 md:py-6 text-base md:text-lg font-semibold"
             disabled={isLoading}
           >
             {isLoading ? "Hledáme destinace..." : "Najít ideální destinace"}
