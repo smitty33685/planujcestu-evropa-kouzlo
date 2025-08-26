@@ -37,10 +37,10 @@ const Navbar = () => {
         isScrolled 
           ? "md:bg-white/95 md:border-b md:border-gray-200 md:shadow-sm" 
           : "md:bg-transparent",
-        "relative bg-transparent" // Mobile stays relative with transparent bg
+        "fixed bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm" // Mobile gets fixed position with white background
       )}>
         <div className="container mx-auto px-4">
-          <div className="flex h-16 items-center justify-center">
+          <div className="flex h-16 items-center justify-between md:justify-center">
             {/* Desktop Navigation */}
             <NavigationMenu className="hidden md:flex">
               <NavigationMenuList>
@@ -74,7 +74,7 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden text-white hover:text-white/80 hover:bg-white/10"
+              className="md:hidden text-gray-900 hover:text-gray-900 hover:bg-gray-100"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -83,13 +83,13 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-black/20 backdrop-blur rounded-lg mt-2">
+            <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
+              <div className="px-4 py-2 space-y-1">
                 {navItems.map((item) => (
                   <Tooltip key={item.href}>
                     <TooltipTrigger asChild>
                       <div
-                        className="block px-3 py-2 rounded-md text-base font-medium transition-colors text-white hover:text-white hover:bg-white/10 cursor-pointer"
+                        className="block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-900 hover:text-gray-900 hover:bg-gray-100 cursor-pointer"
                         onClick={(e) => e.preventDefault()}
                       >
                         {item.label}
